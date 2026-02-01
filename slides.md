@@ -87,16 +87,22 @@ fonts:
     <div style="padding-top: 10%;">
       <ul>
         <li><strong>Ruby Layer</strong>
-          <li>CLI, LSP Integration</li>
-          <li>Config</li>
-          <li>Cache</li>
-          <li>PrismBridge Module によるAST Parse</li>
+          <ul>
+            <li>CLI, LSP Integration</li>
+            <li>Config</li>
+            <li>Cache</li>
+            <li>PrismBridge Module によるAST Parse</li>
+          </ul>
         </li>
         <li><strong>FFI Boundary</strong>
-          <li>Magnus + rb_sys で Ruby ↔ Rust をJSON経由で接続</li>
+          <ul>
+            <li>Magnus + rb_sys で Ruby ↔ Rust をJSON経由で接続</li>
+          </ul>
         </li>
         <li><strong>Rust Layer</strong>
-          <li>Emitterによる具体的なformat処理</li>
+          <ul>
+            <li>Emitterによる具体的なformat処理</li>
+          </ul>
         </li>
       </ul>
       <br/>
