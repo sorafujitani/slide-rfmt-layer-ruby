@@ -339,7 +339,7 @@ fn init(ruby: &Ruby) -> Result<(), Error> {
 - 並列処理の自動判定 (ファイル数・サイズに基づくヒューリスティクス)
   - 余談で、10fileほどであれば並列化しない方が速い
 - diff表示: diffy / diff-lcs gem (unified / side_by_side / color)
-- プログレス表示
+- progress表示
 
 ---
 
@@ -487,10 +487,9 @@ end
 
 # まとめ
 
-- **境界の明確さ**: Ruby = パース + I/O + ユーザーインターフェース、Rust = AST処理 + コード生成
-- **Prism活用**: Rubyの公式パーサーをRuby側で呼び、JSONでRustに渡す
+- **Rust Extension**: Ruby = parse + I/O + 外部とのIntegration、Rust = 具体的なformattiongや計算負荷の高い処理
+- **Prism**: Rubyの標準parserをRuby側で呼び、JSONでRustに渡す
 - **Gemエコシステム**: Thor, diffy, parallel, ruby_lsp などのGemを活用
-- **実用性重視**: 実際のformatなどの計算負荷の高い処理をRustで、それ以外のエコシステム連携や開発者とのInterfaceをRubyで実装
 
 ---
 
