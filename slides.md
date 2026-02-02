@@ -89,7 +89,7 @@ seoMeta:
 - GitHub: https://github.com/fs0414/rfmt
   - いまStar数55くらい
 - RubyGems: https://rubygems.org/gems/rfmt
-  - 資料書いてる時で9945 installs
+  - 資料書いてる時で9950 installs
 - Zenn: https://zenn.dev/soramarjr/articles/0b2464bc09b643
 
 ---
