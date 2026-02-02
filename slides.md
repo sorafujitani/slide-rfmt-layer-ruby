@@ -9,27 +9,27 @@ shikiConfig:
 drawings:
   persist: false
 transition: slide-left
-title: rfmt Ruby Layer
+title: rfmt Ruby layer
 mdc: true
 fonts:
   sans: 'Roboto'
   serif: 'Roboto Slab'
   mono: 'Fira Code'
 info: |
-  rfmt Ruby Layer — Rubyの高速コードフォーマッタ rfmt のRuby layerの設計と実装について
+  rfmt Ruby layer — Rubyの高速コードフォーマッタ rfmt のRuby layerの設計と実装について
 seoMeta:
-  ogTitle: rfmt Ruby Layer
+  ogTitle: rfmt Ruby layer
   ogDescription: Rubyのコードフォーマッタ rfmt のRuby layerの設計と実装について
   ogImage: https://fs0414.github.io/slide-rfmt-layer-ruby/og.png
   ogUrl: https://fs0414.github.io/slide-rfmt-layer-ruby/
   twitterCard: summary_large_image
-  twitterTitle: rfmt Ruby Layer
+  twitterTitle: rfmt Ruby layer
   twitterDescription: Rubyのコードフォーマッタ rfmt のRuby layerの設計と実装について
   twitterImage: https://fs0414.github.io/slide-rfmt-layer-ruby/og.png
 ---
 
 <CoverSlide
-  title="rfmt Ruby Layer"
+  title="rfmt Ruby layer"
   author="Wakate.rb #3 / fujitani sora"
 />
 
@@ -65,7 +65,7 @@ seoMeta:
     </div>
     <br /><br /><br />
     <div>最近のtips</div>
-    <div><p>年末にClaudeで個人サイトをつくった。<br />デザインをいい感じにして見せびらかしたら友人に「いるよねこういうヤツ...」といわれた</p></div>
+    <div><p style="font-size: 0.9rem;">ミセスの影響で葬送のフリーレンを見始めた、<br />ラヴィーネ推し</p></div>
   </div>
   <div class="flex justify-center" style="margin-top: -1.5rem">
     <CenteredImage
@@ -76,21 +76,6 @@ seoMeta:
   </div>
 </div>
 
-</div>
-
----
-
-# TOC
-
-<div style="display: flex; justify-content: center; margin-top: 2rem;">
-<div style="display: flex; flex-direction: column; gap: 1.4rem; text-align: left;">
-<p style="font-size: 1.8rem; margin: 0; color: oklch(0.7 0.1 215); font-weight: 600;">PrismBridge</p>
-<p style="font-size: 1.8rem; margin: 0; color: oklch(0.7 0.1 215); font-weight: 600;">Foreign Function Interface</p>
-<p style="font-size: 1.8rem; margin: 0; color: oklch(0.7 0.1 215); font-weight: 600;">Command Line Interface</p>
-<p style="font-size: 1.8rem; margin: 0; color: oklch(0.7 0.1 215); font-weight: 600;">Configuration & Cache</p>
-<p style="font-size: 1.8rem; margin: 0; color: oklch(0.7 0.1 215); font-weight: 600;">Native Extension & Editor Integration</p>
-<p style="font-size: 1.8rem; margin: 0; color: oklch(0.7 0.1 215); font-weight: 600;">E2E test</p>
-</div>
 </div>
 
 ---
@@ -109,42 +94,6 @@ seoMeta:
 
 ---
 
-# Architecture
-
-<TwoColumnLayout>
-  <template #left>
-    <div style="padding-top: 10%;">
-      <ul>
-        <li><strong>Ruby Layer</strong>
-          <ul>
-            <li>CLI, LSP Integration</li>
-            <li>Config</li>
-            <li>Cache</li>
-            <li>PrismBridge Module によるAST Parse</li>
-          </ul>
-        </li>
-        <li><strong>FFI Boundary</strong>
-          <ul>
-            <li>Magnus + rb_sys で Ruby ↔ Rust をJSON経由で接続</li>
-          </ul>
-        </li>
-        <li><strong>Rust Layer</strong>
-          <ul>
-            <li>Emitterによる具体的なformat処理</li>
-          </ul>
-        </li>
-      </ul>
-      <br/>
-      <h5>今日はこのRuby layerの全体的な話</h5>
-    </div>
-  </template>
-  <template #right>
-    <img src="/architecture.png" alt="rfmt アーキテクチャ図" style="width: 100%;" />
-  </template>
-</TwoColumnLayout>
-
----
-
 # format実行フロー
 
 <div class="text-2xl leading-loose">
@@ -159,7 +108,42 @@ seoMeta:
 
 ---
 
-# TOC
+<h1 style="margin-top: 1.5rem;">Architecture</h1>
+
+<TwoColumnLayout>
+  <template #left>
+    <div>
+      <ul>
+        <li><strong>Ruby layer</strong>
+          <ul>
+            <li>CLI, LSP Integration</li>
+            <li>Config</li>
+            <li>Cache</li>
+            <li>PrismBridge Module によるAST Parse</li>
+          </ul>
+        </li>
+        <li><strong>FFI Boundary</strong>
+          <ul>
+            <li>Magnus + rb_sys で Ruby ↔ Rust をJSON経由で接続</li>
+          </ul>
+        </li>
+        <li><strong>Rust layer</strong>
+          <ul>
+            <li>Emitterによる具体的なformat処理</li>
+          </ul>
+        </li>
+      </ul>
+      <h5>今日はこのRuby layerの全体的な話</h5>
+    </div>
+  </template>
+  <template #right>
+    <img src="/architecture.png" alt="rfmt アーキテクチャ図" style="width: 100%;" />
+  </template>
+</TwoColumnLayout>
+
+---
+
+# TOC（技術詳細の話）
 
 <div style="display: flex; justify-content: center; margin-top: 2rem;">
 <div style="display: flex; flex-direction: column; gap: 1.4rem; text-align: left;">
@@ -263,7 +247,7 @@ end
 
 # Magnus — Ruby bindings for Rust
 
-- Rust で Ruby の拡張 gem を書くためのライブラリ
+- Rust で Ruby の拡張 Gem を書くためのライブラリ
 - Rust の関数を Ruby のメソッドとして公開できる
 - Ruby ↔ Rust 間の型変換を自動で処理
 - 引数のバリデーションやエラーハンドリングも Ruby の慣習に沿って動作
@@ -271,12 +255,10 @@ end
 
 ---
 
-# Ruby-Rust 間のFFI境界
+<h1 style="margin-top: 3.5rem;">Ruby-Rust 間のFFI境界</h1>
 
 <TwoColumnLayout>
   <template #left>
-
-<br><br><br>
 
 ```ruby
 # Ruby側 (lib/rfmt.rb)
@@ -285,6 +267,19 @@ def self.format(source)
   format_code(source, prism_json)
 end
 ```
+
+<br />
+<ul>
+<li>Magnus crate による Ruby-Rust FFI</li>
+<li>Ruby から呼べる3つの関数を公開
+  <ul>
+    <li>フォーマット</li>
+    <li>パース</li>
+    <li>バージョン取得</li>
+  </ul>
+</li>
+<li>データ型変換は Magnus が自動で処理</li>
+</ul>
 
   </template>
   <template #right>
@@ -312,10 +307,6 @@ fn init(ruby: &Ruby) -> Result<(), Error> {
   </template>
 </TwoColumnLayout>
 
-- Magnus crate による Ruby-Rust FFI
-- Ruby から呼べるフォーマット・パース・バージョン取得の3つの関数を公開
-- Ruby と Rust 間のデータ型変換は Magnus が自動で処理
-
 ---
 
 # TOC
@@ -337,11 +328,11 @@ fn init(ruby: &Ruby) -> Result<(), Error> {
 
 `lib/rfmt/cli.rb`
 
-- Thor ベースのCLI — Thor gem で宣言的なコマンド定義
+- Thor ベースのCLI — Thor Gem で宣言的なコマンド定義
 - コマンド: format / check / version / config / cache / init
 - 並列処理の自動判定 (ファイル数・サイズに基づくヒューリスティクス)
   - 余談で、10fileほどであれば並列化しない方が速い
-- diff表示: diffy / diff-lcs gem (unified / side_by_side / color)
+- diff表示: diffy / diff-lcs Gem (unified / side_by_side / color)
 - progress表示
 
 ---
@@ -383,7 +374,6 @@ fn init(ruby: &Ruby) -> Result<(), Error> {
       <li>ファイルglobパターンによるinclude/exclude</li>
       <li>デフォルト設定とのマージ</li>
     </ul>
-    <p>Ruby の得意分野: YAML パース、Dir.glob によるファイル探索</p>
   </template>
   <template #right>
     <p><strong>Cache - キャッシュシステム</strong></p>
@@ -439,7 +429,7 @@ fn init(ruby: &Ruby) -> Result<(), Error> {
 
 <br>
 
-Ruby LSP の Addon は Ruby で書く必要があるため、Ruby Layer に実装
+Ruby LSP の Addon は Ruby で書く必要があるため、Ruby layer に実装
 
 ---
 
