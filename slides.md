@@ -17,26 +17,15 @@ fonts:
   mono: 'Fira Code'
 info: |
   rfmt Ruby Layer — Rubyの高速コードフォーマッタ rfmt のRuby層の設計と実装について
-head:
-  meta:
-    - property: og:title
-      content: rfmt Ruby Layer
-    - property: og:description
-      content: Rubyの高速コードフォーマッタ rfmt のRuby層の設計と実装について
-    - property: og:image
-      content: https://fs0414.github.io/slide-rfmt-layer-ruby/og.png
-    - property: og:url
-      content: https://fs0414.github.io/slide-rfmt-layer-ruby/
-    - property: og:type
-      content: website
-    - name: twitter:card
-      content: summary_large_image
-    - name: twitter:title
-      content: rfmt Ruby Layer
-    - name: twitter:description
-      content: Rubyの高速コードフォーマッタ rfmt のRuby層の設計と実装について
-    - name: twitter:image
-      content: https://fs0414.github.io/slide-rfmt-layer-ruby/og.png
+seoMeta:
+  ogTitle: rfmt Ruby Layer
+  ogDescription: Rubyの高速コードフォーマッタ rfmt のRuby層の設計と実装について
+  ogImage: https://fs0414.github.io/slide-rfmt-layer-ruby/og.png
+  ogUrl: https://fs0414.github.io/slide-rfmt-layer-ruby/
+  twitterCard: summary_large_image
+  twitterTitle: rfmt Ruby Layer
+  twitterDescription: Rubyの高速コードフォーマッタ rfmt のRuby層の設計と実装について
+  twitterImage: https://fs0414.github.io/slide-rfmt-layer-ruby/og.png
 ---
 
 <CoverSlide
