@@ -16,7 +16,7 @@ fonts:
   serif: 'Roboto Slab'
   mono: 'Fira Code'
 info: |
-  rfmt Ruby Layer — Rubyの高速コードフォーマッタ rfmt のRuby層の設計と実装について
+  rfmt Ruby Layer — Rubyの高速コードフォーマッタ rfmt のRuby layerの設計と実装について
 seoMeta:
   ogTitle: rfmt Ruby Layer
   ogDescription: Rubyのコードフォーマッタ rfmt のRuby layerの設計と実装について
@@ -30,7 +30,7 @@ seoMeta:
 
 <CoverSlide
   title="rfmt Ruby Layer"
-  author="fujitani sora"
+  author="Wakate.rb #3 / fujitani sora"
 />
 
 ---
@@ -195,7 +195,7 @@ seoMeta:
 
 このRubyコードを入力すると…
 
-```rubyhttps://fs0414.github.io/slide-rfmt-layer-ruby/1
+```ruby
 def greet(name)
   puts "Hello, #{name}"
 end
