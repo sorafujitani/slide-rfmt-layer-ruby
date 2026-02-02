@@ -48,7 +48,7 @@ seoMeta:
       </div>
       <div class="flex items-center gap-2">
         <carbon-building class="text-lg" />
-        <span>株式会社トリドリ, product engineer</span>
+        <span>株式会社トリドリ</span>
       </div>
       <div class="flex items-center gap-2">
         <carbon-logo-x class="text-lg" />
@@ -195,7 +195,7 @@ seoMeta:
 
 このRubyコードを入力すると…
 
-```ruby
+```rubyhttps://fs0414.github.io/slide-rfmt-layer-ruby/1
 def greet(name)
   puts "Hello, #{name}"
 end
