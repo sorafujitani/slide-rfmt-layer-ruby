@@ -309,6 +309,18 @@ fn init(ruby: &Ruby) -> Result<(), Error> {
 
 ---
 
+# Emitterとの疎結合なInterface
+
+- rfmtの価値はtool自体ではない
+  - 高速なのEmitter Module（formattingの実装詳細）
+  - Ruby layerはあくまでもClient
+  - 外部toolが詳細を意識せずにrfmt Emitterを利用できる状態が理想的である
+    - 例えば、oxfmtも部分的にPrettierのAPIに依存している<br />[RFC: Formatter #13608](https://github.com/oxc-project/oxc/discussions/13608)
+  - ※ この為にも、もっとRust側に実装を寄せていきたいと考えている
+    - Ruby layerの実装が重たいことは、Emitterを利用するユーザーの実装コストになる
+
+---
+
 # TOC
 
 <div style="display: flex; justify-content: center; margin-top: 2rem;">
@@ -383,7 +395,6 @@ fn init(ruby: &Ruby) -> Result<(), Error> {
       <li>~/.cache/rfmt/cache.json にJSONで永続化</li>
       <li>clear / prune / stats 操作</li>
     </ul>
-    <p>低頻度・軽量処理のためRubyで十分な速度</p>
   </template>
 </TwoColumnLayout>
 
