@@ -20,12 +20,12 @@ info: |
 seoMeta:
   ogTitle: rfmt Ruby layer
   ogDescription: Rubyのコードフォーマッタ rfmt のRuby layerの設計と実装について
-  ogImage: https://fs0414.github.io/slide-rfmt-layer-ruby/og.png
-  ogUrl: https://fs0414.github.io/slide-rfmt-layer-ruby/
+  ogImage: https://sorafujitani.github.io/slide-rfmt-layer-ruby/og.png
+  ogUrl: https://sorafujitani.github.io/slide-rfmt-layer-ruby/
   twitterCard: summary_large_image
   twitterTitle: rfmt Ruby layer
   twitterDescription: Rubyのコードフォーマッタ rfmt のRuby layerの設計と実装について
-  twitterImage: https://fs0414.github.io/slide-rfmt-layer-ruby/og.png
+  twitterImage: https://sorafujitani.github.io/slide-rfmt-layer-ruby/og.png
 ---
 
 <CoverSlide
@@ -52,11 +52,11 @@ seoMeta:
       </div>
       <div class="flex items-center gap-2">
         <carbon-logo-x class="text-lg" />
-        <a href="https://x.com/_fs0414">@_fs0414</a>
+        <a href="https://x.com/sorafujitani">@sorafujitani</a>
       </div>
       <div class="flex items-center gap-2">
         <carbon-logo-github class="text-lg" />
-        <a href="https://github.com/fs0414">github.com/fs0414</a>
+        <a href="https://github.com/sorafujitani">github.com/sorafujitani</a>
       </div>
       <div class="flex items-center gap-2">
         <carbon-globe class="text-lg" />
@@ -69,7 +69,7 @@ seoMeta:
   </div>
   <div class="flex justify-center" style="margin-top: -1.5rem">
     <CenteredImage
-      src="https://raw.githubusercontent.com/fs0414/imgs/main/fs0414_dot_image.png"
+      src="https://raw.githubusercontent.com/sorafujitani/imgs/main/fs0414_dot_image.png"
       alt="プロフィール画像"
       width="280px"
     />
@@ -86,7 +86,7 @@ seoMeta:
 - RubyGems Rust Extentionを使用し、Code ModuleをRustで実装
   - https://bundler.io/blog/2023/01/31/rust-gem-skeleton.html
 
-- GitHub: https://github.com/fs0414/rfmt
+- GitHub: https://github.com/sorafujitani/rfmt
   - いまStar数55くらい
 - RubyGems: https://rubygems.org/gems/rfmt
   - 資料書いてる時で9950 installs
@@ -312,7 +312,7 @@ fn init(ruby: &Ruby) -> Result<(), Error> {
 # Emitterとの疎結合なInterface
 
 - rfmtの価値はtool自体ではない
-  - 高速なのEmitter Module（formattingの実装詳細）
+  - 高速なEmitter Module（formattingの実装詳細）が優位性
   - Ruby layerはあくまでもClient
   - 外部toolが詳細を意識せずにrfmt Emitterを利用できる状態が理想的である
     - 例えば、oxfmtも部分的にPrettierのAPIに依存している<br />[RFC: Formatter #13608](https://github.com/oxc-project/oxc/discussions/13608)
@@ -513,6 +513,6 @@ end
   <div class="p-4 rounded-lg" style="background: oklch(0.25 0.03 260); border: 1px solid oklch(0.4 0.06 260)">
     <p class="font-bold mb-2">rfmt</p>
     <p class="font-bold">GitHub Starしてね</p>
-    <a href="https://github.com/fs0414/rfmt">https://github.com/fs0414/rfmt</a>
+    <a href="https://github.com/sorafujitani/rfmt">https://github.com/sorafujitani/rfmt</a>
   </div>
  </div>
